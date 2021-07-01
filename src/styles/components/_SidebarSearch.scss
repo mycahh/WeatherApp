@@ -1,0 +1,54 @@
+.SidebarSearch__wrapper {
+    padding: 12px 12px 12px;
+    min-height: 100vh;
+}
+
+.SidebarSearch__close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.SidebarSearch__form {
+    display: flex;
+    margin-top: 24px;
+    margin-bottom: 38px;
+}
+
+.SidebarSearch__input_wrapper {
+    border: 1px solid $gray-light;
+    padding: 12px 0 12px 12px;
+    display: flex;
+    color: $InputSearch;
+    margin-right: 12px;
+    width: 100%;
+
+    transition: .3s ease;
+
+    ::placeholder {
+        color: $InputSearch;
+    }
+}
+
+.SidebarSearch__inputSubmit {
+    font-weight: 600;
+    background-color: $SearchButtonColor;
+    padding: 0 14px;
+    transition: .3s ease;
+
+    &:hover{
+        background-color: darken($color: $SearchButtonColor, $amount: 20);
+    }
+}
+
+.SidebarSearch__item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    padding: 22px 12px;
+    transition: .3s ease;
+
+    &:hover {
+        border: 1px solid $ColorBorder;
+        background-color: lighten($color: $primary, $amount: 10);
+    }
+}

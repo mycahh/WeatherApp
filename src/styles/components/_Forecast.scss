@@ -1,0 +1,196 @@
+.detailsWheater__wrapper {
+    background-color: $secondary;
+}
+
+.forecast__wrapper {
+    padding: 52px;
+}
+
+.switcher__wrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 2rem;
+}
+
+.switcher__cel {
+    color: $color-celsius;
+    background-color: $gray-light;
+    margin-right: 12px;
+}
+
+.switcher__far {
+    background-color: $bg-fahrenheit;
+}
+
+.forecast_grid {
+    display: grid;
+    row-gap: 32px;
+    column-gap: 26px;
+    grid-auto-rows: 177px;
+}
+
+.forecastSingle {
+    background-color: $primary;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forecastSingle_date {
+    margin-bottom: 10px;
+}
+
+.forecastSingle_img {
+    width: 57px;
+}
+
+.forecastSingle_temperatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.9rem;
+    width: 100%;
+}
+
+.forecastSingle_max {
+    color: $gray-dark;
+}
+
+.isCelsius::after {content: "°C";}
+.isFahrenheit::after {content: "°F";}
+
+.wheaterStatus__wrapper {
+    padding: 0 1.5rem;
+}
+
+.wheaterStatus__title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.wheaterStatus__list {
+    display: grid;
+    row-gap: clamp(2rem,8.75vw,3rem);
+    column-gap: 3rem;
+}
+
+.wheaterStatus__Item {
+    display: flex;
+    align-items: center;
+}
+
+.wheaterStatus__Item {
+    background: $primary;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wheaterStatus__Item_title {
+    margin-top: 22px;
+}
+
+.wheaterStatus__Item_info {
+    font-size: 4rem ;
+
+    &::after {
+        font-size: 36px;
+        font-weight: 500;
+    }
+}
+
+.w-1, .w-2 {
+    height: 204px;
+}
+
+.w-3, .w-4 {
+    height: 160px;
+}
+
+.c-1::after { content: "mph";}
+.c-2::after { content: "%"; font-weight: 400;}
+.c-3::after { content: " miles";}
+.c-4::after { content: " mb";}
+
+.wheaterStatus_windWrapper {
+    margin-top: 2rem;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.windCircle {
+    background-color: #616476;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+
+    & img {
+        width: 12px;
+    }
+}
+
+
+.NNE {transform: rotate(22.5deg);}
+.NE {transform: rotate(45deg);}
+.ENE {transform: rotate(67.5deg);}
+.E {transform: rotate(90deg);}
+.ESE {transform: rotate(112.5deg);}
+.SE {transform: rotate(135deg);}
+.SSE {transform: rotate(157.5deg);}
+.S {transform: rotate(180deg);}
+
+.NNW {transform: rotate(-22.5deg);}
+.NW {transform: rotate(-45deg);}
+.WNW {transform: rotate(-67.5deg);}
+.W {transform: rotate(-90deg);}
+.WSW {transform: rotate(-112.5deg);}
+.SW {transform: rotate(-135deg);}
+.SSW {transform: rotate(-157.5deg);}
+
+.BarHumedity {
+    margin-top: 21px;
+    color: $gray-dark;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.BarHumedity__indicators {
+    display: flex;
+    justify-content: space-between;
+}
+
+.BarHumedity__total {
+    margin: 2px 0 4px;
+    width: 229px;
+    background: $gray-light;
+}
+
+.BarHumedity_current {
+    background: $yellow-bar;
+}
+
+.BarHumedity__total, .BarHumedity_current {
+    height: 8px;
+    border-radius: 80px;
+}
+
+.BarHumedity__percentage {
+    display: block;
+    text-align: right;
+}
+
+footer {
+    color: $gray-dark;
+    text-align: center;
+    padding: 9rem 0 1.5rem;
+}
+
+.link_footer {
+    font-weight: 700;
+}
