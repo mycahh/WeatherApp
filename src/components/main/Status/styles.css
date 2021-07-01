@@ -1,4 +1,4 @@
 /* MIN Functions SCSS: Error */
-.wheaterStatus__list {
+.weatherStatus__list {
     grid-template-columns: repeat(auto-fill,minmax(min(100%,20.4rem),1fr));
 }

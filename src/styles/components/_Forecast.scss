@@ -1,4 +1,4 @@
-.detailsWheater__wrapper {
+.detailsWeather__wrapper {
     background-color: $secondary;
 }
 
@@ -63,39 +63,39 @@
 .isCelsius::after {content: "°C";}
 .isFahrenheit::after {content: "°F";}
 
-.wheaterStatus__wrapper {
+.weatherStatus__wrapper {
     padding: 0 1.5rem;
 }
 
-.wheaterStatus__title {
+.weatherStatus__title {
     font-weight: 700;
     font-size: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.wheaterStatus__list {
+.weatherStatus__list {
     display: grid;
     row-gap: clamp(2rem,8.75vw,3rem);
     column-gap: 3rem;
 }
 
-.wheaterStatus__Item {
+.weatherStatus__Item {
     display: flex;
     align-items: center;
 }
 
-.wheaterStatus__Item {
+.weatherStatus__Item {
     background: $primary;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.wheaterStatus__Item_title {
+.weatherStatus__Item_title {
     margin-top: 22px;
 }
 
-.wheaterStatus__Item_info {
+.weatherStatus__Item_info {
     font-size: 4rem ;
 
     &::after {
@@ -117,7 +117,7 @@
 .c-3::after { content: " miles";}
 .c-4::after { content: " mb";}
 
-.wheaterStatus_windWrapper {
+.weatherStatus_windWrapper {
     margin-top: 2rem;
     font-size: 14px;
     display: flex;

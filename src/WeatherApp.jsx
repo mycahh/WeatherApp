@@ -2,7 +2,7 @@ import React from 'react'
 import useLocator from './hooks/useLocator'
 
 import Sidebar from './components/sidebar'
-import DetailsWheater from './components/main'
+import DetailsWeather from './components/main'
 import LoadingScreen from './components/loading'
 
 function WeatherApp() {
@@ -17,7 +17,7 @@ function WeatherApp() {
         infoWeather={WeatherInfo}
         getInfoWeather={getInfoWeather}
       />
-      <DetailsWheater
+      <DetailsWeather
         infoWeather={WeatherInfo}
       />
     </div>

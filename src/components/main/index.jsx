@@ -1,18 +1,18 @@
 import React from 'react'
 import ListForecast from './forecast/ListForecast'
-import WheaterStatus from './Status/WheaterStatus'
+import WeatherStatus from './Status/WeatherStatus'
 
 
-const DetailsWheater = ({infoWeather}) => {
+const DetailsWeather = ({infoWeather}) => {
 
     const { Forecast, WeatherStatusInfo } = infoWeather
 
     return(
-        <main className="detailsWheater__wrapper">
+        <main className="detailsWeather__wrapper">
             <ListForecast
                 Forecast={Forecast}
             />
-            <WheaterStatus
+            <WeatherStatus
                 WeatherStatusInfo={WeatherStatusInfo}
             />
             <footer>Created by
@@ -23,4 +23,4 @@ const DetailsWheater = ({infoWeather}) => {
     )
 }
 
-export default DetailsWheater
+export default DetailsWeather
