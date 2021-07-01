@@ -2,6 +2,7 @@ import React from 'react'
 import WeatherItem from './WeatherItem'
 import { getSvgUrl } from '../../../helpers/images'
 import BarHumedity from './BarHumedity'
+import './styles.css'
 
 const WeatherStatus = ({WeatherStatusInfo}) => {
 

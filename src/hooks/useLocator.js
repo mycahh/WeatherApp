@@ -4,14 +4,20 @@ import { getWoeidByLattlong, getWeatherByWoeid } from '../services/weather'
 
 const useLocator = () => {
 
-    const [isGeolocator, setGeolocator] = useState(false)
+    const initialState = {ok: true, msg: ''}
+
+    const [error, setError] = useState(initialState)
     const [WeatherInfo, setWeatherInfo] = useState({})
     const [loading, setLoading] = useState(true)
 
     const getInfoWeather = () => {
         getCurrentPosition()
           .then(({coordenate, isGeolocator}) => {
-            setGeolocator(isGeolocator)
+            if(!isGeolocator) {
+              setError({ok: false, msg: 'The locator was not detected. Please enable if you want to use the locator.'})
+            } else {
+              setError(initialState)
+            }
             return coordenate
           })
           .then(getWoeidByLattlong)
@@ -19,8 +25,8 @@ const useLocator = () => {
           .then(info => {
             setWeatherInfo(info)
             setLoading(false)
-            console.log(info)
           })
+          .catch(() => setError({ok: false, msg: 'The device does not have internet access.'}))
     }
 
     const SearchFunc = {setWeatherInfo, setLoading}
@@ -29,7 +35,7 @@ const useLocator = () => {
         getInfoWeather()
     }, [])
 
-    return {isGeolocator, WeatherInfo, loading, getInfoWeather, SearchFunc}
+    return {error, WeatherInfo, loading, getInfoWeather, SearchFunc}
 }
 
 export default useLocator

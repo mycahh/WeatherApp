@@ -19,7 +19,7 @@ const ListForecast = ({Forecast}) => {
                 >℉</span>
             </div>
             <div className="forecast_grid">
-                {Forecast.map(forecast => <ItemForecast {...forecast} isCelsius={isCelsius} /> )}
+                {Forecast.map((forecast, index) => <ItemForecast {...forecast} isCelsius={isCelsius} key={index} /> )}
             </div>
         </div>
     )

@@ -9,3 +9,14 @@
     display: grid;
     place-items: center;
 }
+
+.error {
+    border: 1px solid $Error !important;
+}
+
+.error_input {
+    color: red;
+    position: relative;
+    top: -20px;
+    text-align: center;
+}

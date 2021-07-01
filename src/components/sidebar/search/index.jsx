@@ -24,6 +24,7 @@ const SidebarSearch = ({toggle, handleToggle, SearchFunc}) => {
                     ok: false,
                     msg: 'No se encontró la localidad.'
                 })
+                //setTimeout(()=> setError(initialStateError), 3000)
                 return false
             }
         })
@@ -32,6 +33,7 @@ const SidebarSearch = ({toggle, handleToggle, SearchFunc}) => {
                 setWeatherInfo(res)
             }
         })
+        .catch(() => setError({ok: false, msg: 'The device does not have internet access'}))
     }
 
     return(

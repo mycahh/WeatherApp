@@ -6,7 +6,7 @@ import DetailsWeather from './components/main'
 import LoadingScreen from './components/loading'
 
 function WeatherApp() {
-  const { WeatherInfo, isGeolocator, loading, getInfoWeather, SearchFunc } = useLocator()
+  const { WeatherInfo , error, loading, getInfoWeather, SearchFunc } = useLocator()
 
   if(loading) return <LoadingScreen />
 
@@ -16,6 +16,7 @@ function WeatherApp() {
         SearchFunc={SearchFunc}
         infoWeather={WeatherInfo}
         getInfoWeather={getInfoWeather}
+        error={error}
       />
       <DetailsWeather
         infoWeather={WeatherInfo}

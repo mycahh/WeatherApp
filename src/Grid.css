@@ -1,0 +1,42 @@
+@media (min-width: 991px) {
+    .AppGrid {
+        display: grid;
+        grid-template-columns: 459px 2fr;
+        min-height: 100vh;
+    }
+}
+
+@media (min-width: 1300px) {
+
+    .sidebarInfo__buttons_wrapper {
+        padding: 42px 46px 0 46px;
+    }
+
+    .detailsWeather__wrapper  {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 30px;
+        padding-top: 42px;
+    }
+
+    .weatherStatus__wrapper {
+        padding: 0;
+        padding-top: 72px;
+        width: 720px;
+    }
+
+    .forecast__wrapper {
+        padding: 0;
+        width: 720px;
+    }
+
+    .sidebarInfo__background_image {
+        width: 650px;
+        left: -80px;
+    }
+
+    .sidebarInfo__background_image {
+        height: 326px;
+    }
+}

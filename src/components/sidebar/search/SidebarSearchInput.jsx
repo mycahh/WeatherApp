@@ -9,15 +9,16 @@ const SidebarSearchInput = ({SearchByQuery, setError, error}) => {
         if(search !== '') {
             SearchByQuery(search)
         } else {
-            setError({ok: false, msg:'No se puede colocar un input vacio'})
+            setError({ok: false, msg:'Cannot place an empty input'})
         }
     }
 
     const handleChange = e => setSearch(e.target.value)
 
     return(
+       <>
         <form className="SidebarSearch__form" onSubmit={handleSubmit}>
-            <div className={`SidebarSearch__input_wrapper ${error ? 'error': ''}`}>
+            <div className={`SidebarSearch__input_wrapper ${!error.ok ? 'error': ''}`}>
                 <img src={`${getSvgUrl('search')}`} alt="Search Icon"/>
                 <input
                     className="SidebarSearch__inputSearch"
@@ -32,6 +33,8 @@ const SidebarSearchInput = ({SearchByQuery, setError, error}) => {
                 value="Search"
             />
         </form>
+       { !error.ok && <p className="error_input">{error.msg}</p>}
+       </>
     )
 }
 

@@ -1,10 +1,12 @@
 import React, { useState, Suspense } from 'react'
+import LoadingScreen from '../loading';
 import SidebarInfo from './aside'
 const SidebarSearch = React.lazy(() => import('./search'));
 
-const Sidebar = ({infoWeather, getInfoWeather, SearchFunc}) => {
 
-    const [toggle, setToggle] = useState(true)
+const Sidebar = ({infoWeather, getInfoWeather, SearchFunc, error}) => {
+
+    const [toggle, setToggle] = useState(false)
 
     const handleToggle = () => setToggle(toggle => !toggle)
 
@@ -15,11 +17,12 @@ const Sidebar = ({infoWeather, getInfoWeather, SearchFunc}) => {
                 handleToggle={handleToggle}
                 infoWeather={infoWeather}
                 getInfoWeather={getInfoWeather}
+                error={error}
             />
 
             {
                 toggle && (
-                    <Suspense fallback={<h1>Loading...</h1>}>
+                    <Suspense fallback={<LoadingScreen />}>
                         <SidebarSearch
                             toggle={toggle}
                             handleToggle={handleToggle}

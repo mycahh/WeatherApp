@@ -24,6 +24,12 @@
     padding: 11px 18px;
 }
 
+.sidebarInfo_error {
+    color: $Error;
+    text-align: center;
+    padding: 20px 20px 0;
+}
+
 .sidebarInfo__background_wrapper {
     position: relative;
     height: 326px;

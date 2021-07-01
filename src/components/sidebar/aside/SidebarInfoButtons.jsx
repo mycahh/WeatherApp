@@ -2,8 +2,9 @@ import React from 'react'
 import { getSvgUrl } from '../../../helpers/images'
 
 
-const AsideButtons = ({handleToggle, getInfoWeather}) => (
-    <div className="sidebarInfo__buttons_wrapper">
+const AsideButtons = ({handleToggle, getInfoWeather, error}) => (
+    <>
+        <div className="sidebarInfo__buttons_wrapper">
             <button
                 className="sidebarInfo__button_search"
                 onClick={handleToggle}
@@ -16,7 +17,9 @@ const AsideButtons = ({handleToggle, getInfoWeather}) => (
             >
                 <img src={getSvgUrl('location')} alt="location"/>
             </span>
-    </div>
+        </div>
+       { !error.ok && <p className="sidebarInfo_error">{error.msg}</p>}
+    </>
 )
 
 export default AsideButtons
