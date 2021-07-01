@@ -14,7 +14,7 @@ const useLocator = () => {
         getCurrentPosition()
           .then(({coordenate, isGeolocator}) => {
             if(!isGeolocator) {
-              setError({ok: false, msg: 'The locator was not detected. Please enable if you want to use the locator.'})
+              setError({ok: false, msg: 'The locator was not detected. Please enable if you want to use the locator and Refresh.'})
             } else {
               setError(initialState)
             }
