@@ -12,6 +12,18 @@
         padding: 42px 46px 0 46px;
     }
 
+    .sidebaInfo__weather {
+        margin: 87px 0;
+    }
+
+    .sidebarInfo__temperature {
+        margin-top: 2rem;
+    }
+
+    .sidebarInfo__date {
+        margin-bottom: 2rem;
+    }
+
     .detailsWeather__wrapper  {
         display: flex;
         flex-direction: column;
@@ -40,3 +52,4 @@
         height: 326px;
     }
 }
+
