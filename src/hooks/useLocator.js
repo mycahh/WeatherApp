@@ -9,29 +9,51 @@ const useLocator = () => {
     const [error, setError] = useState(initialState)
     const [WeatherInfo, setWeatherInfo] = useState({})
     const [loading, setLoading] = useState(true)
+    const [init, setInit] = useState(true)
 
-    const getInfoWeather = () => {
-        getCurrentPosition()
-          .then(({coordenate, isGeolocator}) => {
-            if(!isGeolocator) {
-              setError({ok: false, msg: 'The locator was not detected. Please enable if you want to use the locator and try again.'})
-            } else setError(initialState)
-            return coordenate
-          })
-          .then(getWoeidByLattlong)
-          .then(getWeatherByWoeid)
-          .then(info => {
-            setWeatherInfo(info)
-            setLoading(false)
-          })
-          .catch(() => setError({ok: false, msg: 'The device does not have internet access.'}))
+    const getPosition = geolocationObject => {
+      const { coords: {latitude, longitude}} = geolocationObject
+      return `${latitude},${longitude}`
+    }
+
+    const setInfoState = info => {
+      setWeatherInfo(info)
+      setError(initialState)
+    }
+
+    const finallyEvents = () => {
+      setInit(false)
+      setLoading(false)
+    }
+
+    const errorHandling = async err => {
+      if(init) {
+        const DefaultLocation = await getWeatherByWoeid()
+        setWeatherInfo(DefaultLocation)
+      } else {
+        console.log(err)
+        if(err.code === 1) setError({ok: false, msg: 'The locator was not detected. Please enable if you want to use the locator and try again.'})
+        if(err.code === 2) setError({ok: false, msg: 'The device does not have internet access.'})
+        setTimeout(() => {setError(initialState)}, 4000)
+      }
+    }
+
+
+    function getInfoWeather() {
+      getCurrentPosition()
+      .then(getPosition)
+      .then(getWoeidByLattlong)
+      .then(getWeatherByWoeid)
+      .then(setInfoState)
+      .catch(errorHandling)
+      .finally(finallyEvents)
     }
 
     useEffect(() => {
-        getInfoWeather()
+      getInfoWeather()
     }, [])
 
-    return { WeatherInfo, loading, error, getInfoWeather, setWeatherInfo}
+    return { WeatherInfo, loading, error, setWeatherInfo, getInfoWeather}
 }
 
 export default useLocator

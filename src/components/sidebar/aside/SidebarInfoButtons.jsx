@@ -7,8 +7,6 @@ const AsideButtons = ({handleToggle}) => {
 
     const { getInfoWeather, error } = useContext(WeatherContext)
 
-    const handleSearch = () => {getInfoWeather()}
-
     return(
         <>
             <div className="sidebarInfo__buttons_wrapper">
@@ -20,7 +18,7 @@ const AsideButtons = ({handleToggle}) => {
                 </button>
                 <span
                     className="circle sidebarInfo__location_button"
-                    onClick={handleSearch}
+                    onClick={getInfoWeather}
                 >
                     <img src={getSvgUrl('location')} alt="location"/>
                 </span>

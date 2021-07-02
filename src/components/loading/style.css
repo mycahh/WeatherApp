@@ -4,6 +4,7 @@
     width: 100vw;
     display: grid;
     place-items: center;
+    overflow-x: hidden;
 }
 
 .spinner {
@@ -13,7 +14,7 @@
     text-align: center;
     font-size: 10px;
   }
-  
+
   .spinner > div {
     background-color: #E7E7EB;;
     height: 100%;
