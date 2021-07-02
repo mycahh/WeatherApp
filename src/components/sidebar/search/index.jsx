@@ -1,43 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import SidebarSearchClose from './SidebarSearchClose'
 import SidebarSearchInput from './SidebarSearchInput'
 import SidebarSearchList from './SidebarSearchList'
 
 import { getWoeidByQuery, getWeatherByWoeid } from '../../../services/weather'
 
+import WeatherContext from '../../../context/WeatherContext'
 
-const SidebarSearch = ({toggle, handleToggle, SearchFunc}) => {
+const SidebarSearch = ({handleToggle}) => {
 
     const initialStateError = {ok: true, msg:''}
-
-    const {setWeatherInfo, setLoading} = SearchFunc
+    const  { setWeatherInfo }  = useContext(WeatherContext)
     const [error, setError] = useState(initialStateError)
 
     const SearchByQuery = query => {
         getWoeidByQuery(query)
         .then(res => {
-            if(res) {
-                setError(initialStateError)
-                return getWeatherByWoeid(res)
-            } else {
-                setError({
-                    ok: false,
-                    msg: 'No se encontró la localidad.'
-                })
-                //setTimeout(()=> setError(initialStateError), 3000)
-                return false
-            }
+            if(!res) { setError({ ok: false, msg: 'No locality found.'}); return res}
+            setError(initialStateError)
+            return getWeatherByWoeid(res)
         })
-        .then(res => {
-            if(res) {
-                setWeatherInfo(res)
-            }
-        })
+        .then(res => { if(res) setWeatherInfo(res)})
         .catch(() => setError({ok: false, msg: 'The device does not have internet access'}))
     }
 
     return(
-        <div className={`SidebarSearch__wrapper ${toggle ? '' : 'none' }`}>
+        <div className="SidebarSearch__wrapper">
             <SidebarSearchClose
                 handleToggle={handleToggle}
             />

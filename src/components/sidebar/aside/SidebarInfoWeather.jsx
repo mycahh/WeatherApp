@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { getImageUrl, getSvgUrl } from '../../../helpers/images'
+import WeatherContext from '../../../context/WeatherContext'
 
+const AsideInfo = () => {
 
-const AsideInfo = ({infoWeather}) => {
-
-    const { CurrentWeather, Location, Temperature, TodayFormat } = infoWeather
+    const { WeatherInfo } = useContext(WeatherContext)
+    const { CurrentWeather, Location, Temperature, TodayFormat } = WeatherInfo
 
     return(
         <>

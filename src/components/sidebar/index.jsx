@@ -4,7 +4,7 @@ import SidebarInfo from './aside'
 const SidebarSearch = React.lazy(() => import('./search'));
 
 
-const Sidebar = ({infoWeather, getInfoWeather, SearchFunc, error}) => {
+const Sidebar = () => {
 
     const [toggle, setToggle] = useState(false)
 
@@ -12,24 +12,15 @@ const Sidebar = ({infoWeather, getInfoWeather, SearchFunc, error}) => {
 
     return(
         <aside className="sidebar__wrapper">
-            <SidebarInfo
-                toggle={toggle}
-                handleToggle={handleToggle}
-                infoWeather={infoWeather}
-                getInfoWeather={getInfoWeather}
-                error={error}
-            />
-
             {
-                toggle && (
+                toggle ? (
                     <Suspense fallback={<LoadingScreen />}>
                         <SidebarSearch
-                            toggle={toggle}
                             handleToggle={handleToggle}
-                            SearchFunc={SearchFunc}
                         />
                     </Suspense>
                 )
+                : (<SidebarInfo handleToggle={handleToggle}/>)
             }
         </aside>
     )

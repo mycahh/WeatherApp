@@ -2,16 +2,12 @@ import React from 'react'
 import AsideButtons from './SidebarInfoButtons'
 import AsideInfo from './SidebarInfoWeather'
 
-const SidebarComponent = ({toggle, handleToggle, infoWeather, getInfoWeather, error}) => (
-    <div className={`sidebarInfo__wrapper ${toggle  ? 'none' : ''}`} >
+const SidebarComponent = ({handleToggle}) => (
+    <div className="sidebarInfo__wrapper" >
         <AsideButtons
             handleToggle={handleToggle}
-            getInfoWeather={getInfoWeather}
-            error={error}
         />
-        <AsideInfo
-            infoWeather={infoWeather}
-        />
+        <AsideInfo />
     </div>
 )
 

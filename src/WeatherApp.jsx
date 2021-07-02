@@ -5,23 +5,25 @@ import Sidebar from './components/sidebar'
 import DetailsWeather from './components/main'
 import LoadingScreen from './components/loading'
 
+import WeatherContext from './context/WeatherContext'
+
+
 function WeatherApp() {
-  const { WeatherInfo , error, loading, getInfoWeather, SearchFunc } = useLocator()
+
+  const context = useLocator()
+  const { loading, WeatherInfo } = context
 
   if(loading) return <LoadingScreen />
 
   return(
-    <div className="AppGrid">
-      <Sidebar
-        SearchFunc={SearchFunc}
-        infoWeather={WeatherInfo}
-        getInfoWeather={getInfoWeather}
-        error={error}
-      />
-      <DetailsWeather
-        infoWeather={WeatherInfo}
-      />
-    </div>
+    <WeatherContext.Provider value={context}>
+      <div className="AppGrid">
+        <Sidebar />
+        <DetailsWeather
+          infoWeather={WeatherInfo}
+        />
+      </div>
+    </WeatherContext.Provider>
   )
 }
 

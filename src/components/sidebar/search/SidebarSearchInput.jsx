@@ -6,11 +6,13 @@ const SidebarSearchInput = ({SearchByQuery, setError, error}) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        if(search !== '') {
-            SearchByQuery(search)
-        } else {
+
+        if(search === '') {
             setError({ok: false, msg:'Cannot place an empty input'})
+            return;
         }
+
+        SearchByQuery(search)
     }
 
     const handleChange = e => setSearch(e.target.value)

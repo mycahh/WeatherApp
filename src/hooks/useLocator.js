@@ -14,10 +14,8 @@ const useLocator = () => {
         getCurrentPosition()
           .then(({coordenate, isGeolocator}) => {
             if(!isGeolocator) {
-              setError({ok: false, msg: 'The locator was not detected. Please enable if you want to use the locator and Refresh.'})
-            } else {
-              setError(initialState)
-            }
+              setError({ok: false, msg: 'The locator was not detected. Please enable if you want to use the locator and try again.'})
+            } else setError(initialState)
             return coordenate
           })
           .then(getWoeidByLattlong)
@@ -29,13 +27,11 @@ const useLocator = () => {
           .catch(() => setError({ok: false, msg: 'The device does not have internet access.'}))
     }
 
-    const SearchFunc = {setWeatherInfo, setLoading}
-
     useEffect(() => {
         getInfoWeather()
     }, [])
 
-    return {error, WeatherInfo, loading, getInfoWeather, SearchFunc}
+    return { WeatherInfo, loading, error, getInfoWeather, setWeatherInfo}
 }
 
 export default useLocator

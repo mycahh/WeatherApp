@@ -1,14 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { getSvgUrl } from '../../../helpers/images'
+import WeatherContext from '../../../context/WeatherContext'
 
 
-const AsideButtons = ({handleToggle, getInfoWeather, error}) => {
+const AsideButtons = ({handleToggle}) => {
 
-    const handleSearch = () => {
-        if(error.ok) {
-            getInfoWeather()
-        }
-    }
+    const { getInfoWeather, error } = useContext(WeatherContext)
+
+    const handleSearch = () => {getInfoWeather()}
 
     return(
         <>
